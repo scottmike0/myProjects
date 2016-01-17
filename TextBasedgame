@@ -1,0 +1,100 @@
+/*Code by scottmike0
+ * Goals:
+ * Start position at 0.
+ * Face a Monster randomly.
+ * Have a healthbar.
+ *  Complete the program
+ * 
+ * */ 
+public class GameStuff {
+	
+private int moveUp;
+private int moveDown;
+private int moveLeft;
+private int moveRight;
+private int health;
+ public GameStuff (){
+	 //Starting positions
+	 moveUp = 0;
+	 moveDown = 0;
+	 moveLeft = 0;
+	 moveRight = 0;
+	 health = 10;
+	 
+ }
+ public void getHealth(){
+  System.out.printf("\nYour current health is %d",health);
+  if(health == 0){
+	  System.out.print(" ,if you would like to restart then type .restart()");
+  }
+ }
+ public int move(){// how will the person move
+	 return 0;
+ }
+ public void die(){
+	 health = 0;
+	 
+	 System.out.printf(" you decided to kill yourself your health is now %d \n",health);
+ }
+ private int takeDamage(){
+	 return health--;
+ }
+ public void move(int GoUp,int GoDown,int GoLeft,int GoRight){
+	 moveUp += GoUp;
+	 moveDown += GoDown;
+	 moveLeft += GoLeft;
+	 moveRight += GoRight;
+	
+	 
+System.out.printf("\nI can hear an enemy nearby, you should check to see if  it is close to you  with the .watchEnemy() !!!");
+	 
+ }
+ public void restart(){
+	 moveUp = 0;
+	 moveDown = 0;
+	 moveLeft = 0;
+	 moveRight = 0;
+	 health = 10; 
+	System.out.println("\nWelcome back your health is back to full by magic,\nas a result you are back to the starting position!");
+ }
+ public void myPosition(){
+	
+	 System.out.printf( "\nYour current position is %d up %d down %d left %d right",moveUp,moveDown,moveLeft,moveRight );
+	 
+ }
+ private void enemy(){//lele
+	int enemyMovin =  (int)Math.random() * 10 + 1;// so that it does not call 0, and instead is 1-10(i could make a random class but this works to)
+	if(enemyMovin == moveUp || enemyMovin == moveDown || enemyMovin == moveLeft || enemyMovin == moveRight){
+		takeDamage();
+	}
+	else{
+		System.out.print("\nYou successfullly watched the enemy, beware next time");
+	}
+	 
+ }
+ public void watchEnemy(){
+	 enemy();
+	 System.out.printf("\nyou are watching the enemy while moving, you should check your health");
+	 
+ }
+	public static void main(String[] args) {
+		//we fix this
+		GameStuff me = new GameStuff();
+		me.die();
+		me.getHealth();
+		me.restart();
+		me.myPosition();
+		me.move(1,1,1,1);
+		//here everything is 1
+		me.getHealth();
+		me.watchEnemy();
+		me.getHealth();
+		me.move(1, 2, 3, 4);
+		me.myPosition();
+// this means that my position should be 2,3,4,5
+		me.watchEnemy();
+		me.getHealth();
+		
+	}
+
+}
