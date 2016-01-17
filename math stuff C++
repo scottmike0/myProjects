@@ -1,0 +1,35 @@
+#include <cstdlib>
+#include <iostream>
+
+using namespace std;
+
+int addition(int value1, int value2)
+{
+   return value1 + value2;
+}
+int subtraction(int value1,int value2){
+	return value1 - value2;
+}
+int multiplication(int value1, int value2){
+	return value1 * value2;
+}
+int division(int value1, int value2){
+	return value1 / value2;
+}
+
+int main()
+{
+	int num1,num2;
+	cin >> num1>>num2;
+	int add = addition(num1,num2);
+	int multiply = multiplication(num1,num2);
+	int subtract = subtraction(num1,num2);
+	int divide = division(num1,num2);
+	cout << add << " value of add\n ";
+	cout << subtract<< " value of subtract\n ";
+	cout << multiply<< " value of multiply\n ";
+	cout << divide<< " value of divide\n ";
+    system("PAUSE");
+	return 0;
+	
+}
